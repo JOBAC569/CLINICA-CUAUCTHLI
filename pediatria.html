@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Odontopediatría - Clínica Dental Cuauhtli</title>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1108651940050815"
+     crossorigin="anonymous"></script>
+    <link rel="icon" href="imagenes/icono.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+       body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            background-image: url('./inicio2.jpg');
+            height: 100vh;
+            background-attachment: fixed;
+            background-position: top;
+            background-size: cover;
+            position: relative;
+            font-family: 'Poppins', sans-serif;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* Header Styles */
+        header {
+            width: 100%;
+            padding: 10px 20px;
+            background: rgb(0, 0, 0);
+            color: white;
+            font-size: 1.2em;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 9999;
+            box-sizing: border-box;
+        }
+
+        header.sticky {
+            background-color: rgba(0, 0, 0, 0.566);
+        }
+
+        .logo img {
+            max-height: 80px;
+            object-fit: include;
+            vertical-align: middle;
+        }
+
+        /* Menú Principal */
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .menu-button {
+            position: relative;
+            width: auto;
+            padding: 10px 20px;
+            height: auto;
+            background-color: #e7ba05;
+            border-radius: 25px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+            color: white;
+            font-size: 15px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .menu-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+            background-color: #fdde61;
+        }
+
+        .menu-button:active {
+            transform: scale(1);
+            background-color: #002c47;
+        }
+
+        /* Estilos del menú de hamburguesa para móviles */
+        @media (max-width: 768px) {
+            nav {
+                display: none; /* Ocultar el menú en dispositivos pequeños */
+                flex-direction: column; /* Asegurarse de que los elementos del menú estén apilados */
+                gap: 10px;
+                width: 100%;
+                background-color: rgba(0, 0, 0, 0.9); /* Fondo oscuro cuando el menú se muestra */
+                position: absolute;
+                top: 60px; /* Distancia desde la parte superior */
+                left: 0;
+                padding: 20px;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            }
+
+            .hamburger {
+                display: block; /* Mostrar el ícono de la hamburguesa */
+                cursor: pointer;
+            }
+
+            .hamburger div {
+                width: 30px;
+                height: 4px;
+                background-color: white;
+                margin: 6px 0;
+                transition: 0.4s;
+            }
+
+            /* Mostrar el menú cuando está activo */
+            .mobile-visible {
+                display: flex; /* Mostrar el menú */
+            }
+        }
+
+        /* Section Styles */
+        section {
+            padding: 80px 40px;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.373);
+            color: white;
+            margin-top: 80px;
+            border-radius: 10px;
+            position: relative;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        #facilities {
+            background-image: url('imagenes/instalaciones.jpg');
+        }
+
+        #contact {
+            background-image: url('imagenes/inicio7.jpg');
+        }
+
+        section h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #f0c419;
+        }
+
+        section p {
+            font-size: 1.1em;
+            line-height: 1.8;
+        }
+
+        .services-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .service-box {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            width: 250px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-box:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .service-box h3 {
+            font-size: 1.8em;
+            color: #f0c419;
+            margin-bottom: 15px;
+        }
+
+        .service-box p {
+            font-size: 1.1em;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #1a1a1a;
+            color: #fff;
+            padding: 30px 0;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 1.1em;
+        }
+        
+        /* Iconos de redes sociales */
+        .social-icons {
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            color: #fff;
+            font-size: 2em;
+            margin: 0 10px;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: #f0c419;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <a href="inicio.html"> <img src="./logo.png" alt="Logo"> </a> 
+        </div>
+        <div class="hamburger" id="hamburger">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <nav>
+            <div class="menu-button" id="boton-agregar" onclick="window.location.href='servicios.html'">Servicios</div>
+            <div class="menu-button" id="boton-ver" onclick="window.location.href='nosotros.html'">Quienes nosotros</div>
+            <div class="menu-button" id="boton-agregar" onclick="window.location.href='contacto.html'">Contacto</div>
+        </nav>
+    </header>
+
+    <!-- Sección Principal -->
+    <section>
+        <h1>Odontopediatría</h1>
+        <p>
+            La odontopediatría es la rama de la odontología encargada del cuidado dental infantil. Nos especializamos en el tratamiento de los dientes temporales, el cuidado preventivo y la educación bucal para los niños. En nuestra clínica, brindamos atención personalizada y amigable para tus pequeños.
+        </p>
+   
+        <h2>¿Qué ofrecemos?</h2>
+        <div class="services-container">
+            <div class="service-box">
+                <h3>Revisión y Diagnóstico</h3>
+                <p>Realizamos revisiones periódicas para detectar posibles problemas dentales a tiempo.</p>
+            </div>
+            <div class="service-box">
+                <h3>Selladores Dentales</h3>
+                <p>Aplicamos selladores para prevenir caries en los dientes de los niños.</p>
+            </div>
+            <div class="service-box">
+                <h3>Fluorización</h3>
+                <p>Tratamientos con flúor para fortalecer los dientes de los niños y prevenir caries.</p>
+            </div>
+        </div>
+  
+        <h2>¡Cuidamos la sonrisa de tus hijos!</h2>
+        <p>
+            Proporcionamos una atención profesional y cariñosa para que los niños no tengan miedo a sus visitas dentales. Agendemos una cita para cuidar su salud bucal.
+        </p>
+        <a href="https://api.whatsapp.com/send?phone=5219871078489" class="menu-button">Agendar Cita</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Clínica Dental Cuauhtli. Todos los derechos reservados.</p>
+        <div class="social-icons">
+            <a href="https://www.instagram.com/cdc_cozumel/" target="_blank" class="fab fa-instagram"></a>
+            <a href="https://www.facebook.com/CDCCozumel" target="_blank" class="fab fa-facebook-f"></a>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        const nav = document.querySelector('nav');
+        const hamburger = document.querySelector('.hamburger');
+
+        hamburger.addEventListener('click', () => {
+            nav.classList.toggle('mobile-visible');
+        });
+
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            header.classList.toggle('sticky', window.scrollY > 0);
+        });
+    </script>
+</body>
+</html>

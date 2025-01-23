@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clinica Dental Cuauhtli</title>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1108651940050815"
+     crossorigin="anonymous"></script>
+    <link rel="icon" href="imagenes/icono.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Reset Global Styles */
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            font-family: 'Poppins', sans-serif;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* Header Styles */
+        header {
+            width: 100%;
+            padding: 10px 20px;
+            background: rgba(0, 0, 0, 0.834);
+            color: white;
+            font-size: 1.2em;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 9999;
+            box-sizing: border-box;
+        }
+
+        header.sticky {
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+
+        .logo img {
+            max-height: 80px;
+            object-fit: include;
+            vertical-align: middle;
+        }
+
+        /* Menú Principal */
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .menu-button {
+            position: relative;
+            width: auto;
+            padding: 10px 20px;
+            height: auto;
+            background-color: #e7ba05;
+            border-radius: 25px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+            color: white;
+            font-size: 15px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .menu-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+            background-color: #fdde61;
+        }
+
+        .menu-button:active {
+            transform: scale(1);
+            background-color: #002c47;
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            z-index: 10000;
+        }
+
+        .hamburger div {
+            width: 100%;
+            height: 4px;
+            background-color: #fff;
+            border-radius: 2px;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-links.mobile-hidden {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 60px;
+                right: 0;
+                background-color: rgba(0, 0, 0, 0.9);
+                flex-direction: column;
+                width: 100%;
+                height: calc(100% - 60px);
+                align-items: center;
+                justify-content: center;
+                transform: translateX(100%);
+                transition: transform 0.3s ease;
+            }
+
+            .nav-links.mobile-visible {
+                transform: translateX(0);
+            }
+
+            .hamburger {
+                display: flex;
+            }
+        }
+
+        /* Parallax Background */
+        .parallax {
+            background-image: url('./inicio5.jpg');
+            height: 100vh;
+            background-attachment: fixed;
+            background-position: top;
+            background-size: cover;
+            position: relative;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        .hero-section h1 {
+            font-size: 3.5em;
+            font-weight: 600;
+        }
+
+        .button {
+            padding: 12px 24px;
+            background-color: #f0c419;
+            color: #1a1a1a;
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+            text-transform: uppercase;
+            border-radius: 5px;
+            transition: transform 0.3s, background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #ffdd57;
+            transform: translateY(-3px);
+        }
+
+        /* Image Gallery Section */
+        .image-gallery {
+            position: relative;
+            overflow: hidden;
+            height: 630px;
+            margin-top: 80px;
+        }
+
+        .image-gallery .images {
+            display: flex;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .image-gallery img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            flex-shrink: 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .image-gallery img.active {
+            opacity: 1;
+        }
+        .video-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1; /* Envía el video al fondo */
+}
+
+.video-container video {
+    width: 100%;
+    height: 100%;
+  
+    object-fit: cover; /* Asegura que el video cubra toda el área */
+}
+
+        /* Section Styles */
+        section {
+        padding: 80px 40px;
+        text-align: center;
+        background: rgba(0, 0, 0, 0.834);
+        color: white;
+        margin-top: 80px;
+        border-radius: 10px;
+        position: relative;
+        background-size: cover;
+        
+        background-repeat: no-repeat;
+    }
+
+    #services {
+        background-image: url('./inicio6.png');
+       
+    }
+
+    #facilities {
+        background-image: url('./instalaciones.jpg');
+    }
+
+    #contact {
+        background-image: url('./inicio7.jpg');
+    }
+
+    section h2 {
+        font-size: 2.5em;
+        margin-bottom: 20px;
+        color: #f0c419;
+    }
+
+    section p {
+        font-size: 1.1em;
+        line-height: 1.8;
+    }
+
+        /* Footer Styles */
+        footer {
+            background-color: #1a1a1a;
+            color: #fff;
+            padding: 30px 0;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 1.1em;
+        }
+        footer {
+            background-color: #1a1a1a;
+            color: #fff;
+            padding: 30px 0;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 1.1em;
+        }
+
+        /* Iconos de redes sociales */
+        .social-icons {
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            color: #fff;
+            font-size: 2em;
+            margin: 0 10px;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: #f0c419;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header id="header">
+        <div class="logo">
+            <a href="inicio.html"> <img src="./logo.png" alt="Logo"> </a> 
+        </div>
+        <div class="hamburger" id="hamburger">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <nav class="nav-links" id="nav-links">
+            <div class="menu-button" id="boton-agregar" onclick="window.location.href='servicios.html'">Servicios</div>
+            <div class="menu-button" id="boton-ver" onclick="window.location.href='ver.html'">Quienes nosotros</div>
+            <div class="menu-button" id="boton-agregar" onclick="window.location.href='inventario.html'">Contacto</div>
+            
+        </nav>
+    </header>
+
+    <!-- Parallax Section -->
+    <div class="parallax">
+        <div class="hero-section">
+            <h1>Bienvenidos a Clinica Dental Cuauhtli</h1>
+            <button class="button">Ver Más</button>
+        </div>
+    </div>
+
+    <!-- Image Gallery Section -->
+    <div class="image-gallery">
+        <div class="images">
+            <img src="./inicio1.jpg" alt="Imagen 1" class="active">
+            <img src="./inicio2.jpg" alt="Imagen 2">
+            <img src="./inicio3.jpg" alt="Imagen 3">
+            <img src="./inicio4.jpg" alt="Imagen 4">
+        </div>
+    </div>
+
+    <!-- Servicios Section -->
+    <section id="services">
+        <h2>Servicios</h2>
+        <p>Descripción de los servicios que ofrecemos en este proyecto escolar.</p>
+        <button class="button">Ver</button>
+    </section>
+
+    <!-- Instalaciones Section -->
+    <section id="facilities">
+        <div class="video-container">
+            <video autoplay muted loop>
+                <source src="./cdc.mp4" type="video/mp4">
+                Tu navegador no soporta la reproducción de videos.
+            </video>
+        </div>
+        <h2>Instalaciones</h2>
+        <p>Conoce nuestras instalaciones</p>
+        <button class="button">Ver </button>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Contáctanos</h2>
+        <p>Información de contacto: Teléfono: +52 987 872 1189, email: drcuau.cdc@gmail.com y 
+            <br> ubicación: CALLE 65 BIS ENTRE 5 Y MORELOS COL. INVIQROO, San Miguel de Cozumel, Mexico.</p>
+        <button class="button">Envíanos un Mensaje</button>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Todos los derechos reservados.</p>
+        <div class="social-icons">
+            <a href="https://www.instagram.com/cdc_cozumel/" target="_blank" class="fab fa-instagram"></a>
+            <a href="https://www.facebook.com/CDCCozumel" target="_blank" class="fab fa-facebook-f"></a>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Image Gallery Transition
+            const images = document.querySelectorAll('.image-gallery img');
+            let currentIndex = 0;
+
+            function changeImage() {
+                images[currentIndex].classList.remove('active');
+                currentIndex = (currentIndex + 1) % images.length;
+                images[currentIndex].classList.add('active');
+            }
+
+            setInterval(changeImage, 3000); // Change every 3 seconds
+
+            // Hamburger Menu Toggle
+            const hamburger = document.getElementById('hamburger');
+            const navLinks = document.getElementById('nav-links');
+
+            hamburger.addEventListener('click', () => {
+                navLinks.classList.toggle('mobile-visible');
+            });
+        });
+    </script>
+
+</body>
+</html>
+
