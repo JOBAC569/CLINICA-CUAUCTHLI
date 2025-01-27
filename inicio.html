@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clinica Dental Cuauhtli</title>
+    <script src="https://static.elfsight.com/platform/platform.js" async></script>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1108651940050815"
      crossorigin="anonymous"></script>
     <link rel="icon" href="imagenes/icono.png">
@@ -187,7 +188,7 @@
         .image-gallery {
             position: relative;
             overflow: hidden;
-            height: 630px;
+            height: 340px;
             margin-top: 80px;
         }
 
@@ -223,6 +224,70 @@
     height: 100%;
     overflow: hidden;
     z-index: -1; /* Envía el video al fondo */
+}
+.accordian {
+	width: 805px; height: 320px;
+	overflow: hidden;
+	
+	/*Time for some styling*/
+	margin: 100px auto;
+	box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.35);
+	-webkit-box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.35);
+	-moz-box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.35);
+}
+
+/*A small hack to prevent flickering on some browsers*/
+.accordian ul {
+	width: 2000px;
+	/*This will give ample space to the last item to move
+	instead of falling down/flickering during hovers.*/
+}
+
+.accordian li {
+	position: relative;
+	display: block;
+	width: 160px;
+	float: left;
+	
+	border-left: 1px solid #888;
+	
+	box-shadow: 0 0 25px 10px rgba(0, 0, 0, 0.5);
+	-webkit-box-shadow: 0 0 25px 10px rgba(0, 0, 0, 0.5);
+	-moz-box-shadow: 0 0 25px 10px rgba(0, 0, 0, 0.5);
+	
+	/*Transitions to give animation effect*/
+	transition: all 0.5s;
+	-webkit-transition: all 0.5s;
+	-moz-transition: all 0.5s;
+	/*If you hover on the images now you should be able to 
+	see the basic accordian*/
+}
+
+/*Reduce with of un-hovered elements*/
+.accordian ul:hover li {width: 40px;}
+/*Lets apply hover effects now*/
+/*The LI hover style should override the UL hover style*/
+.accordian ul li:hover {width: 640px;}
+
+
+.accordian li img {
+	display: block;
+}
+
+/*Image title styles*/
+.image_title {
+	background: rgba(0, 0, 0, 0.5);
+	position: absolute;
+	left: 0; bottom: 0;	
+width: 640px;	
+
+}
+.image_title a {
+	display: block;
+	color: #fff;
+	text-decoration: none;
+	padding: 20px;
+	font-size: 16px;
 }
 
 .video-container video {
@@ -326,8 +391,8 @@
         </div>
         <nav class="nav-links" id="nav-links">
             <div class="menu-button" id="boton-agregar" onclick="window.location.href='servicios.html'">Servicios</div>
-            <div class="menu-button" id="boton-ver" onclick="window.location.href='ver.html'">Quienes nosotros</div>
-            <div class="menu-button" id="boton-agregar" onclick="window.location.href='inventario.html'">Contacto</div>
+            <div class="menu-button" id="boton-ver" onclick="window.location.href='nosotros.html'">Quienes nosotros</div>
+            <div class="menu-button" id="boton-agregar" onclick="window.location.href='contacto.html'">Contacto</div>
             
         </nav>
     </header>
@@ -349,7 +414,7 @@
             <img src="./inicio4.jpg" alt="Imagen 4">
         </div>
     </div>
-
+   
     <!-- Servicios Section -->
     <section id="services">
         <h2>Servicios</h2>
@@ -369,7 +434,21 @@
         <p>Conoce nuestras instalaciones</p>
         <button class="button">Ver </button>
     </section>
-
+    <section id="reseñas" style="text-align: center; margin: 20px 0;">
+        <h2>Nuestra ubicación</h2>
+        <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; margin: 0 auto;">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3737.194699449533!2d-86.9425085!3d20.4982433!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f4e5829686bfbfb%3A0x4c1f68e7f7449e86!2sCl%C3%ADnica%20Dental%20Cuauhtli!5e0!3m2!1ses-419!2smx!4v1737703322036!5m2!1ses-419!2smx" 
+                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+    </section>
+    <section id="contact">
+    <div class="elfsight-app-69f142bd-6327-4076-a461-54fe3e5fc8ff" data-elfsight-app-lazy></div>
+</section>
     <!-- Contact Section -->
     <section id="contact">
         <h2>Contáctanos</h2>
@@ -388,6 +467,7 @@
     </footer>
 
     <script>
+        
         document.addEventListener("DOMContentLoaded", () => {
             // Image Gallery Transition
             const images = document.querySelectorAll('.image-gallery img');
